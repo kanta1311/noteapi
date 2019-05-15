@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: May 13, 2019 at 05:39 AM
+-- Generation Time: May 15, 2019 at 06:45 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.1.26
 
@@ -35,6 +35,16 @@ CREATE TABLE `note` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `note`
+--
+
+INSERT INTO `note` (`id`, `title`, `description`, `user_id`) VALUES
+(1, 'App1', 'Play 1', 1),
+(2, 'title2', '', 1),
+(3, 'title2', '', 1),
+(4, 'title2', '', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +57,13 @@ CREATE TABLE `user` (
   `password` varchar(10) NOT NULL,
   `token` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `token`) VALUES
+(1, 'Arvind', '123456', '65fae07cda5da17ab4c8192d9e86e8ce');
 
 --
 -- Indexes for dumped tables
@@ -62,7 +79,8 @@ ALTER TABLE `note`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -72,13 +90,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `note`
 --
 ALTER TABLE `note`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
